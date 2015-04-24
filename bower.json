@@ -1,0 +1,24 @@
+{
+  "name": "kursovaDB",
+  "version": "0.0.1",
+  "homepage": "https://github.com/san4osq/kursova",
+  "authors": [
+    "san4osq <san4osq@ya.ru>"
+  ],
+  "description": "kursova description",
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".idea",
+    "tests",
+    "test"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.2",
+    "mustache": "~2.0.0"
+  }
+}

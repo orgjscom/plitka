@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="import" href="/views/external/import.html">
+    <script src="/views/query/discount/discount.gears.js"></script>
+    <script src="/views/query/discount/discount.behaviors.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Запит 7. Вивести інформацію про акційні товари
+                        (назва акційного товару, ціна акційного товару,
+                        дата оголошення акції, дата закінчення акції, номер акції)
+                        за вказаним кольором товару, та за вказаною вартістю товару.
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset class="row">
+                        <div class="form-group col-md-4">
+                            <label for="DiscountColor">Колір товару</label>
+                            <select class="form-control" id="DiscountColor"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="DiscountPrice">Ціна акційного товару</label>
+                            <select class="form-control" id="DiscountPrice"></select>
+                        </div>
+                        <button type="button" class="btn btn-default col-md-2">Виконати запит 7</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Звіт запиту 7.</h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group table-responsive">
+                            <table id="excelDataTable" class="table table-hover table-bordered"></table>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+
+</body>
+</html>

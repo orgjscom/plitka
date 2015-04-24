@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="import" href="/views/external/import.html">
+    <script src="/views/query/user/user.gears.js"></script>
+    <script src="/views/query/user/user.behaviors.js"></script>
+</head>
+<body>
+<div id="header"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Запит 1. Вивести інформацію про покупців
+                        (ПІБ покупця, стать покупця, країна покупця, місто покупця,
+                        вік покупця, домашня адреса покупця, контактний номер телефону покупця, логін покупця),
+                        які проживають в певній країні, та зробили певну кількість замовлень.
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset class="row">
+                        <div class="form-group col-md-4">
+                            <label for="ProductCategories">Країна покупця</label>
+                            <select class="form-control" id="UserCountry"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="ProductСolors">Кількість замовлень</label>
+                            <select class="form-control" id="UserOrder"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="UserCity">Місто покупця</label>
+                            <select class="form-control" id="UserCity"></select>
+                        </div>
+
+
+
+                        <button type="button" class="btn btn-default col-md-2">Виконати запит 1</button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Звіт запиту 1.</h3>
+                </div>
+                <div class="panel-body">
+                    <fieldset>
+                        <div class="form-group table-responsive">
+                            <table id="excelDataTable" class="table table-hover table-bordered"></table>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer"></div>
+
+</body>
+</html>
