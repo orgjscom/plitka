@@ -4,8 +4,8 @@ function Discount () {
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            DiscountColor: $('#DiscountColor').val(),
-            DiscountPrice: $('#DiscountPrice').val()
+            DiscountCountry: $('#DiscountCountry').val(),
+            DiscountDate: $('#DiscountDate').val()
         };
         $.ajax({
             method: "POST",
@@ -24,38 +24,38 @@ function Discount () {
             }
         });
     }
-    this.showAllDiscountColor = function (){
+    this.showAllDiscountCountry = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/discount/color",
+            url: "/discount/country",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{колір товару}}</option>" +
+                        "<option>{{країна виробника}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#DiscountColor').append(rendered);
+                    $('#DiscountCountry').append(rendered);
                 }
             }
         });
     }
-    this.showAllDiscountPrice = function (){
+    this.showAllDiscountDate = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/discount/price",
+            url: "/discount/date",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{ціна акційного товару}}</option>" +
+                        "<option>{{дата закінчення акції}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#DiscountPrice').append(rendered);
+                    $('#DiscountDate').append(rendered);
                 }
             }
         });

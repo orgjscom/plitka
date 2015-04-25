@@ -2,6 +2,7 @@ var user = require('./user/user');
 var order = require('./order/order');
 var manager = require('./manager/manager');
 var product = require('./product/product');
+var maker = require('./maker/maker');
 var discount = require('./discount/discount');
 
 var index  = "../www/index";
@@ -35,8 +36,7 @@ module.exports.initialize = function(app) {
     app.post('/product/result', product.result);
 
     app.get('/user', user.index);
-    app.get('/user/country', user.country);
-    app.get('/user/city', user.city);
+    app.get('/user/status', user.status);
     app.get('/user/order', user.order);
     app.post('/user/result', user.result);
 
@@ -44,17 +44,23 @@ module.exports.initialize = function(app) {
 
 
     app.get('/manager', manager.index);
-    app.get('/manager/status', manager.status);
+    app.get('/manager/price', manager.price);
     app.get('/manager/exp', manager.exp);
-    app.get('/manager/id', manager.id);
     app.post('/manager/result', manager.result);
 
 
 
 
+    app.get('/maker', maker.index);
+    app.get('/maker/price', maker.price);
+    app.get('/maker/type', maker.type);
+    app.post('/maker/result', maker.result);
+
+
+
     app.get('/discount', discount.index);
-    app.get('/discount/color', discount.color);
-    app.get('/discount/price', discount.price);
+    app.get('/discount/country', discount.country);
+    app.get('/discount/date', discount.date);
     app.post('/discount/result', discount.result);
 
 

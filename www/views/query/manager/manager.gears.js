@@ -4,9 +4,8 @@ function Manager () {
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            ManagerStatus: $('#ManagerStatus').val(),
-            ManagerExp: $('#ManagerExp').val(),
-            ManagerId: $('#ManagerId').val()
+            ManagerPrice: $('#ManagerPrice').val(),
+            ManagerExp: $('#ManagerExp').val()
         };
         $.ajax({
             method: "POST",
@@ -25,43 +24,25 @@ function Manager () {
             }
         });
     }
-    this.showAllManagerStatus = function (){
+    this.showAllManagerPrice = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/manager/status",
+            url: "/manager/price",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{статус замовлення}}</option>" +
+                        "<option>{{ціна послуги}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ManagerStatus').append(rendered);
+                    $('#ManagerPrice').append(rendered);
                 }
             }
         });
     }
 
-    this.showAllManagerId = function (){
-        var that = this;
-        $.ajax({
-            method: "GET",
-            url: "/manager/id",
-            complete: function(data){
-                if(data.status !== 500){
-                    data = data.responseJSON;
-                    data = JSON.parse(data);
-                    var template = "{{#.}}" +
-                        "<option>{{номер замовлення}}</option>" +
-                        "{{/.}}";
-                    var rendered = Mustache.render(template, data);
-                    $('#ManagerId').append(rendered);
-                }
-            }
-        });
-    }
     this.showAllManagerExp = function (){
         var that = this;
         $.ajax({
@@ -72,7 +53,7 @@ function Manager () {
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{стаж менеджера}}</option>" +
+                        "<option>{{стаж роботи працівника}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
                     $('#ManagerExp').append(rendered);

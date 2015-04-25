@@ -5,38 +5,30 @@ module.exports = {
         res.render(userView);
     },
     result: function(req, res) {
-        var ManagerStatus = req.body.ManagerStatus;
+        var ManagerPrice = req.body.ManagerPrice;
         var ManagerExp = req.body.ManagerExp;
-        var ManagerId = req.body.ManagerId;
         var connectionQuery = "SELECT DISTINCT											"+
-            "  managers.*                                                               "+
+            "  workers.*                                                               "+
             "FROM                                                                       "+
-            "  managers                                                                 "+
+            "  workers                                                                 "+
             "  INNER JOIN orders                                                        "+
-            "  ON orders.`менеджер, який оформляє замовлення` = managers.`ПІБ менеджера`"+
-            "WHERE                                                                      "+
-            "  managers.`стаж менеджера` = '" + ManagerExp + "'" +
-            "  AND orders.`статус замовлення` = '" + ManagerStatus + "'";
-            "  AND orders.`номе замовлення` = '" + ManagerId + "'";
+            "  ON orders.`відповідальна людина за надання послуги` = workers.`ПІБ працівника`"+
+            " WHERE                                                                      "+
+            "  workers.`стаж роботи працівника` = '" + ManagerExp + "'" +
+            "  AND orders.`ціна послуги` = '" + ManagerPrice + "'";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
         });
     },
-    status: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT `статус замовлення` FROM orders";
+    price: function(req, res) {
+        var connectionQuery = "SELECT DISTINCT `ціна послуги` FROM orders order by `ціна послуги`";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });
     },
     exp: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT `стаж менеджера` FROM managers WHERE `стаж менеджера` <> ''";
-        dbController.dbQuery(connectionQuery, function (data) {
-            res.json(data);
-        });
-    },
-    id: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT `номер замовлення` FROM orders";
+        var connectionQuery = "SELECT DISTINCT `стаж роботи працівника` FROM workers order by `стаж роботи працівника`";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

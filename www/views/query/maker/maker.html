@@ -2,8 +2,8 @@
 <html>
 <head lang="en">
     <link rel="import" href="/views/external/import.html">
-    <script src="/views/query/discount/discount.gears.js"></script>
-    <script src="/views/query/discount/discount.behaviors.js"></script>
+    <script src="/views/query/maker/maker.gears.js"></script>
+    <script src="/views/query/maker/maker.behaviors.js"></script>
 </head>
 <body>
 <div id="header"></div>
@@ -14,20 +14,21 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        Запит 6. Вивести дані про акції (назва акційного товару, ціна акційного товару,
-                        дата закінчення акції, номер акції),
-                        які закінчуються певного місяця, і виробник акційного товару розміщується в певній країні.
+                        запит 5. Вивести інформацію про виробників (країна виробник, адреса виробника,
+                        назва виробника, термін співпраці), які
+                        виробляють плитку певного виду за ціною, не більшою за вказану.
+
                     </h3>
                 </div>
                 <div class="panel-body">
                     <fieldset class="row">
                         <div class="form-group col-md-4">
-                            <label for="DiscountDate">Місяць закінчення акції</label>
-                            <select class="form-control" id="DiscountDate"></select>
+                            <label for="MakerType">Вид виробу</label>
+                            <select class="form-control" id="MakerType"></select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="DiscountCountry">Ціна акційного товару</label>
-                            <select class="form-control" id="DiscountCountry"></select>
+                            <label for="MakerPrice">Ціна виробу (грн)</label>
+                            <select class="form-control" id="MakerPrice"></select>
                         </div>
                         <div class="form-group">
                             <button type="button" class="btn btn-default col-md-12">РЕЗУЛЬТАТ</button>

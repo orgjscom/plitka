@@ -1,7 +1,6 @@
 var manager = new Manager();
 $(document).ready(function(){
-    manager.showAllManagerStatus()
+    manager.showAllManagerPrice()
     manager.showAllManagerExp()
-    manager.showAllManagerId()
     $(".btn").click(manager.showManagerResult)
 });

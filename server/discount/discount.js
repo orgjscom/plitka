@@ -5,30 +5,32 @@ module.exports = {
         res.render(userView);
     },
     result: function(req, res) {
-        var DiscountColor = req.body.DiscountColor;
-        var DiscountPrice = req.body.DiscountPrice;
+        var DiscountCountry = req.body.DiscountCountry;
+        var DiscountDate = req.body.DiscountDate;
         var connectionQuery = "SELECT DISTINCT									"+
             "  discounts.*                                                      "+
             "FROM                                                               "+
             "  discounts                                                        "+
             "  INNER JOIN products                                              "+
             "  ON discounts.`назва акційного товару` = products.`назва товару`  "+
+            "  INNER JOIN makers                                              "+
+            "  ON products.`виробник виробу` = makers.`назва виробника`  "+
             "WHERE                                                              "+
-            "  products.`колір товару` = '" + DiscountColor + "'"
-            "  AND discounts.`ціна акційного товару` = '" + DiscountPrice + "'";
+            "  makers.`країна виробника` = '" + DiscountCountry + "'"
+            "  AND discounts.`дата закінчення акції` = '" + DiscountDate + "'";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
         });
     },
-    color: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT `колір товару` FROM products";
+    country: function(req, res) {
+        var connectionQuery = "SELECT DISTINCT `країна виробника` FROM makers";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });
     },
-    price: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT `ціна акційного товару` FROM discounts";
+    date: function(req, res) {
+        var connectionQuery = "SELECT DISTINCT `дата закінчення акції` FROM discounts";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

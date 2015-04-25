@@ -1,15 +1,15 @@
 var script = new Script();
-function User () {
-    this.showUserResult = function (){
+function Maker () {
+    this.showMakerResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            UserStatus: $('#UserStatus').val(),
-            UserOrder: $('#UserOrder').val()
+            MakerPrice: $('#MakerPrice').val(),
+            MakerType: $('#MakerType').val()
         };
         $.ajax({
             method: "POST",
-            url: "/user/result",
+            url: "/maker/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
@@ -24,38 +24,38 @@ function User () {
             }
         });
     }
-    this.showAllUserStatus = function (){
+    this.showAllMakerPrice = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/user/status",
+            url: "/maker/price",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{статус клієнта}}</option>" +
+                        "<option>{{ціна виробу}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#UserStatus').append(rendered);
+                    $('#MakerPrice').append(rendered);
                 }
             }
         });
     }
-    this.showAllUserOrder = function (){
+    this.showAllMakerType = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/user/order",
+            url: "/maker/type",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{назва послуги}}</option>" +
+                        "<option>{{вид виробу}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#UserOrder').append(rendered);
+                    $('#MakerType').append(rendered);
                 }
             }
         });

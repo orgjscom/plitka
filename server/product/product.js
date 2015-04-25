@@ -22,7 +22,7 @@ module.exports = {
         });
     },
     count: function(req, res) {
-        var connectionQuery = 'SELECT DISTINCT `кількість одиниць виробу` FROM products';
+        var connectionQuery = 'SELECT DISTINCT `кількість одиниць виробу` FROM products order by `кількість одиниць виробу`';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });
