@@ -2,17 +2,47 @@
 @fs-component-variable: #fff;
 
 body {
-    background-color: grey;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, monospace!important;
+    background-image: url(/img/bg.jpg);
+    background-position: center;
+    background-size: 100%;
+}
+*{
+    border-radius: 0!important;
+    text-transform: uppercase;
+}
+#header{
+    color: yellow;
+    background: #000000;
+}
+.navbar-brand{
+    height: 85px;
+}
+.jumbotron{
+    background-color: transparent;
+    background-position: center;
+    background-size: 100%;
 }
 .buttonIndex a{
-    width: 100%;
-    margin: 2%;
     white-space: normal;
-    height: auto;
+    border-radius: 0;
+    background: rgb(59, 61, 194);
+    text-decoration: underline;
     width: 100%;
-    margin: 2%;
-    font-size: 14px;
+    font-size: 38px;
+    text-transform: uppercase;
+    margin: 20px;
+}
+.buttonIndex a span:before{
+    content:""!important;
+}
+.buttonIndex a:hover,.buttonIndex a:focus{
+    background: #ffff00;
+}
+.buttonIndex a:active{
+    background: mediumspringgreen;
 }
 table{
     widtd: 1280px;
@@ -24,33 +54,94 @@ table{
 .navbar-brand {
     padding: 0;
 }
-.navbar-right  {
-    display: block;
-    background-image: url(/img/repair-database.png)!important;
-    width: 55px;
-    height: 100%;
-    background-position: center;
-    background-size: 84%;
-    background-repeat: no-repeat;
-}
+
 .navbar-right  .dropdown-toggle{
     background-color: transparent!important;
 }
-.navbar-brand div{
+.navbar-brand div {
     display: block;
-    background-image: url(/img/eCommerce-logo.jpg);
-    width: 200px;
+    background-image: url(/img/eCommerce-logo.png);
+    width: 100px;
     height: 100%;
     background-position: center;
-    background-size: 72%;
+    background-size: 77%;
     background-repeat: no-repeat;
 }
-.btn{
-    height: 60px;
-}
+
 .jumbotron{
     padding:0;
 }
+.navbar-default{
+    color: yellow;
+    background: #000000;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+    color: yellow;
+    background: #000000;
+}
+.navbar-collapse h3{
+    color: yellow;
+    background: #000000;
+}
+.name{
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: Arial, Helvetica, monospace!important;
+
+}
+
+.rowName{
+    background: rgb(240,183,161); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(240,183,161,1) 0%, rgba(140,51,16,1) 42%, rgba(117,34,1,1) 61%, rgba(191,110,78,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,183,161,1)), color-stop(42%,rgba(140,51,16,1)), color-stop(61%,rgba(117,34,1,1)), color-stop(100%,rgba(191,110,78,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(240,183,161,1) 0%,rgba(140,51,16,1) 42%,rgba(117,34,1,1) 61%,rgba(191,110,78,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(240,183,161,1) 0%,rgba(140,51,16,1) 42%,rgba(117,34,1,1) 61%,rgba(191,110,78,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(240,183,161,1) 0%,rgba(140,51,16,1) 42%,rgba(117,34,1,1) 61%,rgba(191,110,78,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(240,183,161,1) 0%,rgba(140,51,16,1) 42%,rgba(117,34,1,1) 61%,rgba(191,110,78,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0b7a1', endColorstr='#bf6e4e',GradientType=0 ); /* IE6-9 */
+    margin-left: 18px;
+}
+
+
+.panel-default > .panel-heading {
+    color: white;
+    background-color: blue;
+    border-color: white;
+    padding: 17px 15px;
+    border-bottom: 1px solid;
+}
+#header+.container{
+    margin-top: -106px;
+    margin-left: 87px;
+}
+
+
+.panel-body {
+    padding: 15px;
+    background: yellow;
+}
+
+.col-md-12 {
+    width: 100%;
+    margin-bottom: -20px;
+}
+.form-control{
+    border: 5px solid rgb(44, 19, 219);
+    padding: 0;
+}
+label{
+    display:block;
+    text-align:center;
+}
+.form-group button {
+    margin: 5px 0 5px 15px;
+    background: rgb(32, 42, 178);
+    width: 97%;
+    color: white;
+}
+
 footer navbar{
+
     margin: 0;
 }
