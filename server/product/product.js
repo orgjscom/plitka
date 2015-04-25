@@ -5,30 +5,30 @@ module.exports = {
         res.render(userView);
     },
     result: function(req, res) {
-        var ProductCategories = req.body.ProductCategories;
-        var ProductСolors = req.body.ProductСolors;
+        var ProductCount = req.body.ProductCount;
+        var ProductCountry = req.body.ProductCountry;
         var connectionQuery = "SELECT DISTINCT									"+
             "  products.*                                                       "+
             "FROM                                                               "+
             "  products                                                         "+
-            "  INNER JOIN categories                                            "+
-            "  ON products.`категорія товару` = categories.`назва категорії`    "+
+            "  INNER JOIN makers                                            "+
+            "  ON products.`виробник виробу` = makers.`назва виробника`    "+
             "WHERE                                                              "+
-            "  products.`категорія товару`=  '" + ProductCategories  + "'" +
-            "  AND products.`колір товару` = '" + ProductСolors  + "'";
+            "  makers.`країна виробника` =  '" + ProductCountry  + "'" +
+            "  AND products.`кількість одиниць виробу` = '" + ProductCount  + "'";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
         });
     },
-    category: function(req, res) {
-        var connectionQuery = 'SELECT DISTINCT `категорія товару` FROM products';
+    count: function(req, res) {
+        var connectionQuery = 'SELECT DISTINCT `кількість одиниць виробу` FROM products';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });
     },
-    color: function(req, res) {
-        var connectionQuery = 'SELECT DISTINCT `колір товару` FROM products';
+    country: function(req, res) {
+        var connectionQuery = 'SELECT DISTINCT `країна виробника` FROM makers';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

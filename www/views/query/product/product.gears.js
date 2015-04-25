@@ -4,8 +4,8 @@ function Product () {
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            ProductCategories: $('#ProductCategories').val(),
-            ProductСolors: $('#ProductСolors').val()
+            ProductCount: $('#ProductCount').val(),
+            ProductCountry: $('#ProductCountry').val()
         };
         $.ajax({
             method: "POST",
@@ -24,38 +24,38 @@ function Product () {
             }
         });
     }
-    this.showAllProductCategories = function (){
+    this.showAllProductCount = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/product/category",
+            url: "/product/count",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{категорія товару}}</option>" +
+                        "<option>{{кількість одиниць виробу}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ProductCategories').append(rendered);
+                    $('#ProductCount').append(rendered);
                 }
             }
         });
     }
-    this.showAllProductColor = function (){
+    this.showAllProductCountry = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/product/color",
+            url: "/product/country",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{колір товару}}</option>" +
+                        "<option>{{країна виробника}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#ProductСolors').append(rendered);
+                    $('#ProductCountry').append(rendered);
                 }
             }
         });

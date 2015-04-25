@@ -14,33 +14,30 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        Запит 2. Вивести інформацію про замовлення
-                        (номер замовлення, ПІБ покупця, що замовив, замовлений товар,
-                        статус замовлення, загальна вартість замовлення,
-                        спосіб доставки замовлення, менеджер, який оформляє замовлення) тих покупців,
-                        що здійснили не менше певної кількості замовлень, та покупець був певної статі.
+                        запит 1. Вивести дані про послуги (назва послуги, ціна послуги,
+                        відповідальна людина за надання послуги) за ціною, не більше вказаної,
+                        які надав працівник певної посади.
                     </h3>
                 </div>
                 <div class="panel-body">
                     <fieldset class="row">
                         <div class="form-group col-md-4">
-                            <label for="OrderCount">Мінімальна кількість замовлень</label>
-                            <input type="number" class="form-control" id="OrderCount">
+                            <label for="OrderPrice">Ціна послуги</label>
+                            <input type="number" value="500" class="form-control" id="OrderPrice">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="OrderSex">Стать покупця</label>
-                            <select class="form-control" id="OrderSex"></select>
+                            <label for="OrderPosition">Посада працівника</label>
+                            <select class="form-control" id="OrderPosition"></select>
                         </div>
-                        <button type="button" class="btn btn-default col-md-2">Виконати запит 2</button>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-default col-md-12">РЕЗУЛЬТАТ</button>
+                        </div>
                     </fieldset>
                 </div>
             </div>
         </div>
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Звіт запиту 2.</h3>
-                </div>
                 <div class="panel-body">
                     <fieldset>
                         <div class="form-group table-responsive">

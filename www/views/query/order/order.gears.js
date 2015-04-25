@@ -4,8 +4,8 @@ function Order () {
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            OrderCount: $('#OrderCount').val(),
-            OrderSex: $('#OrderSex').val()
+            OrderPrice: $('#OrderPrice').val(),
+            OrderPosition: $('#OrderPosition').val()
         };
         $.ajax({
             method: "POST",
@@ -24,38 +24,38 @@ function Order () {
             }
         });
     }
-    this.showAllOrderCount = function (){
+    this.showAllOrderPrice = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/order/count",
+            url: "/order/price",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{кількість проданих одиниць товару}}</option>" +
+                        "<option>{{ціна послуги}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#OrderCount').append(rendered);
+                    $('#OrderPrice').append(rendered);
                 }
             }
         });
     }
-    this.showAllOrderSex = function (){
+    this.showAllOrderPosition = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/order/sex",
+            url: "/order/position",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{стать покупця}}</option>" +
+                        "<option>{{посада працівника}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#OrderSex').append(rendered);
+                    $('#OrderPosition').append(rendered);
                 }
             }
         });

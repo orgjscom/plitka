@@ -1,11 +1,8 @@
 var user = require('./user/user');
 var order = require('./order/order');
-var category = require('./category/category');
 var manager = require('./manager/manager');
 var product = require('./product/product');
-var complaint = require('./complaint/complaint');
 var discount = require('./discount/discount');
-var wish = require('./wish/wish');
 
 var index  = "../www/index";
 var query  = "../www/views/query";
@@ -24,6 +21,19 @@ module.exports.initialize = function(app) {
     });
 
 
+
+
+    app.get('/order', order.index);
+    app.get('/order/price', order.price);
+    app.get('/order/position', order.position);
+    app.post('/order/result', order.result);
+
+
+    app.get('/product', product.index);
+    app.get('/product/count', product.count);
+    app.get('/product/country', product.country);
+    app.post('/product/result', product.result);
+
     app.get('/user', user.index);
     app.get('/user/country', user.country);
     app.get('/user/city', user.city);
@@ -31,16 +41,7 @@ module.exports.initialize = function(app) {
     app.post('/user/result', user.result);
 
 
-    app.get('/order', order.index);
-    app.get('/order/count', order.count);
-    app.get('/order/sex', order.sex);
-    app.post('/order/result', order.result);
 
-    app.get('/category', category.index);
-    app.get('/category/delivery', category.delivery);
-    app.get('/category/seazon', category.seazon);
-    app.get('/category/id', category.id);
-    app.post('/category/result', category.result);
 
     app.get('/manager', manager.index);
     app.get('/manager/status', manager.status);
@@ -48,24 +49,13 @@ module.exports.initialize = function(app) {
     app.get('/manager/id', manager.id);
     app.post('/manager/result', manager.result);
 
-    app.get('/product', product.index);
-    app.get('/product/category', product.category);
-    app.get('/product/color', product.color);
-    app.post('/product/result', product.result);
 
-    app.get('/complaint', complaint.index);
-    app.get('/complaint/status', complaint.status);
-    app.get('/complaint/year', complaint.year);
-    app.post('/complaint/result', complaint.result);
+
 
     app.get('/discount', discount.index);
     app.get('/discount/color', discount.color);
     app.get('/discount/price', discount.price);
     app.post('/discount/result', discount.result);
 
-    app.get('/wish', wish.index);
-    app.get('/wish/city', wish.city);
-    app.get('/wish/year', wish.year);
-    app.post('/wish/result', wish.result);
 
 }

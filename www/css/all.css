@@ -40,6 +40,7 @@ body {
 }
 .buttonIndex a:hover,.buttonIndex a:focus{
     background: #ffff00;
+    color: blue;
 }
 .buttonIndex a:active{
     background: mediumspringgreen;
@@ -88,7 +89,7 @@ table{
     text-transform: uppercase;
     text-align: center;
     font-family: Arial, Helvetica, monospace!important;
-
+    height: 75px;
 }
 
 .rowName{

@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
     host     : '127.0.0.1',
     user     : 'root',
     password : '',
-    database : 'ecommerce'
+    database : 'plitka'
 });
 connection.connect();
 module.exports.dbQuery = function(connectionQuery, callback) {
@@ -13,7 +13,7 @@ module.exports.dbQuery = function(connectionQuery, callback) {
                 var data = JSON.stringify(rows);
                 callback(data);
             } else{
-                var data = JSON.stringify([{'empty':'Ваш запит не дав результатів.'}]);
+                var data = JSON.stringify([{'Невдала спроба':'Ваш запит не дав відповіді.'}]);
                 callback(data);
             }
         } else{

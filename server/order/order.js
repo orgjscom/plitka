@@ -5,40 +5,30 @@ module.exports = {
         res.render(userView);
     },
     result: function(req, res) {
-        var OrderCount = req.body.OrderCount;
-        var OrderSex = req.body.OrderSex;
+        var OrderPrice = req.body.OrderPrice;
+        var OrderPosition = req.body.OrderPosition;
         var connectionQuery = "SELECT DISTINCT							"+
             "  orders.*                                                 "+
             "FROM                                                       "+
             "  orders                                                   "+
-            "  INNER JOIN users                                         "+
-            "  ON users.`ПІБ покупця` = orders.`ПІБ покупця, що замовив`"+
-            "  INNER JOIN products                                      "+
-            "  ON products.`назва товару` = orders.`замовлений товар`   "+
+            "  INNER JOIN workers                                       "+
+            "  ON workers.`ПІБ працівника` = orders.`відповідальна людина за надання послуги`"+
             "WHERE                                                      "+
-            "  users.`стать покупця` = '" + OrderSex + "'" +
-            "  AND products.`кількість проданих одиниць товару` > '" + OrderCount + "'";
-
+            "  orders.`ціна послуги` <= '" + OrderPrice + "'" +
+            "  AND workers.`посада працівника` = '" + OrderPosition + "'";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
         });
     },
-    count: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT				"+
-            "  `кількість проданих одиниць товару`          "+
-            "FROM                                           "+
-            "  products                                     "+
-            "WHERE                                          "+
-            "  `кількість проданих одиниць товару` <> '0'   "+
-            "  AND `кількість проданих одиниць товару` <>   "+
-            "'кількість проданих одиниць товару'            ";
+    price: function(req, res) {
+        var connectionQuery = 'SELECT DISTINCT `ціна послуги` FROM orders';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });
     },
-    sex: function(req, res) {
-        var connectionQuery = 'SELECT DISTINCT `стать покупця` FROM users';
+    position: function(req, res) {
+        var connectionQuery = 'SELECT DISTINCT `посада працівника` FROM workers';
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

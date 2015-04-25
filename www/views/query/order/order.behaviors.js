@@ -1,6 +1,6 @@
 var order = new Order();
 $(document).ready(function(){
-    order.showAllOrderCount()
-    order.showAllOrderSex()
+    order.showAllOrderPrice()
+    order.showAllOrderPosition()
     $(".btn").click(order.showOrderResult)
 });
