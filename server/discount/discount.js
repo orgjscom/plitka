@@ -12,12 +12,12 @@ module.exports = {
             "FROM                                                               "+
             "  discounts                                                        "+
             "  INNER JOIN products                                              "+
-            "  ON discounts.`назва акційного товару` = products.`назва товару`  "+
+            "  ON discounts.`назва акційного товару` = products.`назва виробу`  "+
             "  INNER JOIN makers                                              "+
             "  ON products.`виробник виробу` = makers.`назва виробника`  "+
             "WHERE                                                              "+
-            "  makers.`країна виробника` = '" + DiscountCountry + "'"
-            "  AND discounts.`дата закінчення акції` = '" + DiscountDate + "'";
+            "  makers.`країна виробника` = '" + DiscountCountry + "'" +
+            "  AND MONTH(discounts.`дата закінчення акції`) = " + DiscountDate ;
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
@@ -30,7 +30,7 @@ module.exports = {
         });
     },
     date: function(req, res) {
-        var connectionQuery = "SELECT DISTINCT `дата закінчення акції` FROM discounts";
+        var connectionQuery = "SELECT MONTH(`дата закінчення акції`) FROM discounts";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

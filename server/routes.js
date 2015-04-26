@@ -4,6 +4,7 @@ var manager = require('./manager/manager');
 var product = require('./product/product');
 var maker = require('./maker/maker');
 var discount = require('./discount/discount');
+var number = require('./number/number');
 
 var index  = "../www/index";
 var query  = "../www/views/query";
@@ -62,6 +63,12 @@ module.exports.initialize = function(app) {
     app.get('/discount/country', discount.country);
     app.get('/discount/date', discount.date);
     app.post('/discount/result', discount.result);
+
+
+    app.get('/number', number.index);
+    app.get('/number/type', number.type);
+    app.get('/number/count', number.count);
+    app.post('/number/result', number.result);
 
 
 }

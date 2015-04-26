@@ -1,30 +1,20 @@
 var script = new Script();
-function Discount () {
-    this.showDiscountResult = function (){
+function Number () {
+    this.showNumberResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
-        var DiscountDate = $('#DiscountDate').val()
-        console.log(DiscountDate)
         var data = {
-            DiscountCountry: $('#DiscountCountry').val(),
-            DiscountDate: DiscountDate
+            NumberCount: $('#NumberCount').val(),
+            NumberType: $('#NumberType').val()
         };
         $.ajax({
             method: "POST",
-            url: "/discount/result",
+            url: "/maker/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
-                    for (i in data){
-                        try{
-                            data[i]['дата закінчення акції'] = data[i]['дата закінчення акції'].replace("T22:00:00.000Z","");
-                        }catch(e){
-
-                        }
-
-                    }
                     console.log(data);
                     script.buildHtmlTable(data);
                 }
@@ -34,38 +24,38 @@ function Discount () {
             }
         });
     }
-    this.showAllDiscountCountry = function (){
+    this.showAllNumberCount = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/discount/country",
+            url: "/number/count",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{країна виробника}}</option>" +
+                        "<option>{{кількість одиниць замовленого товару}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#DiscountCountry').append(rendered);
+                    $('#NumberCount').append(rendered);
                 }
             }
         });
     }
-    this.showAllDiscountDate = function (){
+    this.showAllNumberType = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/discount/date",
+            url: "/number/type",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{MONTH(`дата закінчення акції`)}}</option>" +
+                        "<option>{{вид виробу}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#DiscountDate').append(rendered);
+                    $('#NumberType').append(rendered);
                 }
             }
         });
