@@ -10,12 +10,12 @@ module.exports = {
         var connectionQuery = "SELECT DISTINCT							"+
             "  users.`номер телефону клієнта`                           "+
             "FROM                                                       "+
-            "  users                                                   "+
+            "  users                                                    "+
             "  INNER JOIN products                                      "+
-            "  ON products.`назва виробу` = products.`виробник виробу`"+
+            "  ON users.`замовлений товар` = products.`назва виробу`    "+
             "WHERE                                                      "+
             "  products.`вид виробу` = '" + NumberType + "'" +
-            "  AND products.`кількість одиниць замовленого товару` = '" + NumberCount + "'" ;
+            "  AND users.`кількість одиниць замовленого товару` = " + NumberCount;
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
             console.log(data);
@@ -33,7 +33,6 @@ module.exports = {
     },
     type: function(req, res) {
         var connectionQuery = "SELECT DISTINCT `вид виробу` FROM products " ;
-//            "WHERE `вид виробу` LIKE '%вібропресований%' OR `вид виробу` LIKE '%лита%'";
         dbController.dbQuery(connectionQuery, function (data) {
             res.json(data);
         });

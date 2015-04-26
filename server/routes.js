@@ -5,6 +5,7 @@ var product = require('./product/product');
 var maker = require('./maker/maker');
 var discount = require('./discount/discount');
 var number = require('./number/number');
+var type = require('./type/type');
 
 var index  = "../www/index";
 var query  = "../www/views/query";
@@ -70,5 +71,9 @@ module.exports.initialize = function(app) {
     app.get('/number/count', number.count);
     app.post('/number/result', number.result);
 
+    app.get('/type', type.index);
+    app.get('/type/price', type.price);
+    app.get('/type/termin', type.termin);
+    app.post('/type/result', type.result);
 
 }

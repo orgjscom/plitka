@@ -1,15 +1,15 @@
 var script = new Script();
-function Number () {
-    this.showNumberResult = function (){
+function Type () {
+    this.showTypeResult = function (){
         var that = this;
         $("#excelDataTable").find("tbody").remove();
         var data = {
-            NumberCount: $('#NumberCount').val(),
-            NumberType: $('#NumberType').val()
+            TypePrice: $('#TypePrice').val(),
+            TypeTermin: $('#TypeTermin').val()
         };
         $.ajax({
             method: "POST",
-            url: "/number/result",
+            url: "/type/result",
             data: data,
             complete: function(data){
                 if(data.status !== 500){
@@ -24,38 +24,39 @@ function Number () {
             }
         });
     }
-    this.showAllNumberCount = function (){
+    this.showAllTypePrice = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/number/count",
+            url: "/type/price",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{кількість одиниць замовленого товару}}</option>" +
+                        "<option>{{ціна виробу}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#NumberCount').append(rendered);
+                    $('#TypePrice').append(rendered);
                 }
             }
         });
     }
-    this.showAllNumberType = function (){
+
+    this.showAllTypeTermin = function (){
         var that = this;
         $.ajax({
             method: "GET",
-            url: "/number/type",
+            url: "/type/termin",
             complete: function(data){
                 if(data.status !== 500){
                     data = data.responseJSON;
                     data = JSON.parse(data);
                     var template = "{{#.}}" +
-                        "<option>{{вид виробу}}</option>" +
+                        "<option>{{термін співпраці виробника з клієнтом}}</option>" +
                         "{{/.}}";
                     var rendered = Mustache.render(template, data);
-                    $('#NumberType').append(rendered);
+                    $('#TypeTermin').append(rendered);
                 }
             }
         });

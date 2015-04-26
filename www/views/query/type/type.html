@@ -2,8 +2,8 @@
 <html>
 <head lang="en">
     <link rel="import" href="/views/external/import.html">
-    <script src="/views/query/product/product.gears.js"></script>
-    <script src="/views/query/product/product.behaviors.js"></script>
+    <script src="/views/query/type/type.gears.js"></script>
+    <script src="/views/query/type/type.behaviors.js"></script>
 </head>
 <body>
 <div id="header"></div>
@@ -14,26 +14,20 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        запит 2. Вивести дані про вироби (ціна виробу, вид виробу, назва виробу,
-                        розмір виробу, вага виробу, кількість одиниць виробу,
-                        одиниця виміру виробу, виробник виробу), яких є певна кількість,
-                        і які виготовлені в певній країні.
-
+                        запит 7. Вивести види виробів за терміном співпраці виробника виробу,
+                        та за  ціною виробу не менше вказаної.
                     </h3>
                 </div>
                 <div class="panel-body">
                     <fieldset class="row">
                         <div class="form-group col-md-4">
-                            <label for="ProductCount">Кількість виробів (шт)</label>
-                            <select class="form-control" id="ProductCount"></select>
+                            <label for="TypeTermin">Термін співпраці виробника</label>
+                            <select class="form-control" id="TypeTermin"></select>
                         </div>
-                        <!--45-->
-                        <!--1200-->
                         <div class="form-group col-md-4">
-                            <label for="ProductCountry">Країна виробник</label>
-                            <select class="form-control" id="ProductCountry"></select>
+                            <label for="TypePrice">Ціна виробу (грн)</label>
+                            <select class="form-control" id="TypePrice"></select>
                         </div>
-                        <!--Україна-->
                         <div class="form-group">
                             <button type="button" class="btn btn-default col-md-12">РЕЗУЛЬТАТ</button>
                         </div>
