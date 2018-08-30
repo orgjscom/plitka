@@ -1,11 +1,8 @@
 {
   "name": "kursovaDB",
   "version": "0.0.1",
-  "homepage": "https://github.com/san4osq/kursova",
-  "authors": [
-    "san4osq <san4osq@ya.ru>"
-  ],
-  "description": "kursova description",
+  "homepage": "https://github.com/orgjscom/plitka/edit/master/bower.json",
+  "description": "https://github.com/orgjscom/plitka/edit/master/bower.json",
   "main": "server.js",
   "license": "MIT",
   "ignore": [
